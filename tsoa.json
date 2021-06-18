@@ -1,0 +1,23 @@
+{
+  "entryFile": "src/server.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/controllers/*controller.ts"],
+  "spec": {
+    "basePath": "/api/v1",
+    "outputDirectory": "./dist",
+    "specVersion": 3,
+    "entryFile": "./src/server.ts",
+    "version": "1.0.0",
+    "name": "TS Boilerplate",
+    "description": "Typescript boiler node rest api",
+    "contact": {
+      "email": "lucasmonteiroi@outlook.com",
+      "name": "Lucas Monteiro Inacio"
+    }
+  },
+  "routes": {
+    "basePath": "/api/v1",
+    "routesDir": "./src/routes",
+    "middleware": "express"
+  }
+}
