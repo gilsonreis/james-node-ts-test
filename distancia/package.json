@@ -1,0 +1,14 @@
+{
+  "name": "nodejs_setup",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Gilson Reis <gilsonc.reis@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node server.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

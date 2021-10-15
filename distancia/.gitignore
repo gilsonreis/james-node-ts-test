@@ -1,0 +1,5 @@
+.idea
+node_modules
+coverage
+database.txt
+.DS_Store
