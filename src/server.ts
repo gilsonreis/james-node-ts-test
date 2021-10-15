@@ -8,7 +8,7 @@ import { swaggerSetup } from './middlewares/swaggerSetup';
 import { RegisterRoutes } from './routes/routes';
 
 configureEnvironment();
-const listenPort = process.env.PORT;
+const listenPort = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
