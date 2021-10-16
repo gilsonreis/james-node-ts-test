@@ -21,9 +21,9 @@ RegisterRoutes(app);
 app.use(globalErrorHandler);
 swaggerSetup(app);
 
-app.get('*', function (req, res) {
-  res.redirect(`${process.env.SWAGGER_BASE}`);
-});
+// app.get('*', function (req, res) {
+//   res.redirect(`${process.env.SWAGGER_BASE}`);
+// });
 
 app.listen(listenPort, () => {
   console.log(`🚀: Server started on port ${listenPort}`);

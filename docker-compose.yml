@@ -14,16 +14,11 @@ services:
     links:
       - db
     ports:
-      - '${PORT}:3333'
+      - '${PORT}:${PORT}'
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app
     command: 'yarn dev:server'
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "5"
   db:
     image: postgres:13.4
     container_name: ${PROJECT_NAME}_db
