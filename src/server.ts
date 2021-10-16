@@ -8,7 +8,7 @@ import { swaggerSetup } from './middlewares/swaggerSetup';
 import { RegisterRoutes } from './routes/routes';
 
 configureEnvironment();
-const listenPort = process.env.PORT;
+const listenPort = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
@@ -21,9 +21,9 @@ RegisterRoutes(app);
 app.use(globalErrorHandler);
 swaggerSetup(app);
 
-app.get('*', function (req, res) {
-  res.redirect(`${process.env.SWAGGER_BASE}`);
-});
+// app.get('*', function (req, res) {
+//   res.redirect(`${process.env.SWAGGER_BASE}`);
+// });
 
 app.listen(listenPort, () => {
   console.log(`🚀: Server started on port ${listenPort}`);
