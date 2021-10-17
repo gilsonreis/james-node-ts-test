@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 
@@ -6,12 +6,15 @@ import globalErrorHandler from './middlewares/globalErrorHandler';
 import configureEnvironment from './middlewares/dotenvSetup';
 import { swaggerSetup } from './middlewares/swaggerSetup';
 import { RegisterRoutes } from './routes/routes';
+import {createConnection} from "typeorm";
 
 configureEnvironment();
 const listenPort = process.env.PORT || 4000;
 const app = express();
 
-app.use(express.json());
+createConnection().then(() => console.debug("DATABASE", "✅ Database was Connected successful"));
+
+app.use(express.json() as RequestHandler);
 app.use(cors({ origin: true }));
 
 // Routes
@@ -26,5 +29,5 @@ swaggerSetup(app);
 // });
 
 app.listen(listenPort, () => {
-  console.log(`🚀: Server started on port ${listenPort}`);
+  console.log("SERVER", `🚀 Server started on port ${listenPort}`);
 })

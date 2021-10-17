@@ -1,0 +1,19 @@
+{
+  "name": "default",
+  "type": "postgres",
+  "host": "db",
+  "port": 5432,
+  "username": "postgres",
+    "password": "dev123",
+  "database": "james_dev",
+  "logging": false,
+  "entities": [
+    "src/models/*.ts"
+  ],
+  "migrations": [
+    "src/database/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "src/database/migrations"
+  }
+}
