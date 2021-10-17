@@ -1,6 +1,7 @@
 import express, { RequestHandler } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
+import "reflect-metadata";
 
 import globalErrorHandler from './middlewares/globalErrorHandler';
 import configureEnvironment from './middlewares/dotenvSetup';
@@ -12,10 +13,10 @@ configureEnvironment();
 const listenPort = process.env.PORT || 4000;
 const app = express();
 
-createConnection().then(() => console.debug("DATABASE", "✅ Database was Connected successful"));
-
 app.use(express.json() as RequestHandler);
 app.use(cors({ origin: true }));
+
+createConnection().then(() => console.debug("DATABASE", "✅ Database was Connected successful"));
 
 // Routes
 RegisterRoutes(app);
