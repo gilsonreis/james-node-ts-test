@@ -1,14 +1,22 @@
-import {Controller, Delete, Get, Post, Put, Request, Route} from 'tsoa';
+import {Controller, Delete, Example, Get, Post, Put, Query, Request, Route, Tags} from 'tsoa';
 import {getCustomRepository} from "typeorm";
 import CategoriaRepository from "../repositories/CategoriaRepository"
 import express from "express";
 import Categoria from "../entities/Categoria";
 import {validarDados} from "../validators/categoria.validator";
+import CategoriaModel from "../models/CategoriaModel";
 
 @Route('categorias')
+@Tags("Categorias")
 export class CategoriasController extends Controller {
+    /**
+     * Método para listar todas as categorias do sistema.
+     *
+     * @param request
+     * @param search
+     */
     @Get('')
-    public async index(@Request() request: express.Request) {
+    public async index(@Request() request: express.Request, @Query() search?) {
         const response = request.res;
         try {
             const categoriaRepository = getCustomRepository(CategoriaRepository)
@@ -51,6 +59,10 @@ export class CategoriasController extends Controller {
         }
     }
 
+    @Example<CategoriaModel>({
+        nome: "Puzzle",
+        descricao: "Jogos de quebra-cabeças"
+    })
     @Post()
     public async store (@Request() request: express.Request) {
         const response = request.res;

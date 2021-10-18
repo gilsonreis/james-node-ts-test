@@ -8,11 +8,11 @@
     "specVersion": 3,
     "entryFile": "./src/server.ts",
     "version": "1.0.0",
-    "name": "TS Boilerplate",
-    "description": "Typescript boiler node rest api",
+    "name": "Loja de Games",
+    "description": "Documentação da loja de games",
     "contact": {
-      "email": "lucasmonteiroi@outlook.com",
-      "name": "Lucas Monteiro Inacio"
+      "email": "gilsonc.reis@gmail.com",
+      "name": "Gilson Reis"
     }
   },
   "routes": {
