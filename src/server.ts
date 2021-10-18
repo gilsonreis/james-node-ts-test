@@ -8,6 +8,7 @@ import configureEnvironment from './middlewares/dotenvSetup';
 import { swaggerSetup } from './middlewares/swaggerSetup';
 import { RegisterRoutes } from './routes/routes';
 import {createConnection} from "typeorm";
+import {pagination} from 'typeorm-pagination'
 
 configureEnvironment();
 const listenPort = process.env.PORT || 4000;
@@ -15,6 +16,7 @@ const app = express();
 
 app.use(express.json() as RequestHandler);
 app.use(cors({ origin: true }));
+app.use(pagination);
 
 createConnection().then(() => console.debug("DATABASE", "✅ Database was Connected successful"));
 

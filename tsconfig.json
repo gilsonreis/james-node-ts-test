@@ -21,18 +21,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": [
-        "./src/controllers/*"
-      ],
-      "@models/*": [
-        "./src/models/*",
-      ],
-      "@middlewares/*": [
-        "./src/middlewares/*"
-      ],
-      "@repositories/*": [
-        "./src/repositories/*"
-      ]
+
     }
   }
 }
