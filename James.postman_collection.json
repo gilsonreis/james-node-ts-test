@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "4a66bbec-cea7-4550-a454-91d19a4bfd80",
+		"name": "James",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Categorias",
+					"item": [
+						{
+							"name": "Listar Todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/categorias",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categorias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/categorias",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categorias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Alterar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Ação\",\n    \"descricao\": \"Jogos de luta, tiro e muita violencia! alterado\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/categorias/9e39fb99-1d86-4a47-acf0-a266efad76fd",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categorias",
+										"9e39fb99-1d86-4a47-acf0-a266efad76fd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Visualizar por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/categorias/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categorias",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/categorias/f4261bd3-c95e-47e7-95b6-83b6bddb1674",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categorias",
+										"f4261bd3-c95e-47e7-95b6-83b6bddb1674"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Plataformas",
+					"item": [
+						{
+							"name": "Listar Todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/plataformas",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plataformas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/plataformas",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plataformas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Alterar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Xbox Series X\",\n    \"descricao\": \"Melhor console da Microsoft\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/plataformas/573eb4a8-d1b9-45c6-b156-b937f677cc59",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plataformas",
+										"573eb4a8-d1b9-45c6-b156-b937f677cc59"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Visualizar por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/plataformas/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plataformas",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/plataformas/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plataformas",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Produtoras",
+					"item": [
+						{
+							"name": "Listar Todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/produtoras",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"produtoras"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/produtoras",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"produtoras"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Alterar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Xbox Series X\",\n    \"descricao\": \"Melhor console da Microsoft\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/produtoras/573eb4a8-d1b9-45c6-b156-b937f677cc59",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"produtoras",
+										"573eb4a8-d1b9-45c6-b156-b937f677cc59"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Visualizar por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/plataformas/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"plataformas",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/produtoras/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"produtoras",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Desenvolvedoras",
+					"item": [
+						{
+							"name": "Listar Todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/desenvolvedoras",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"desenvolvedoras"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/desenvolvedoras",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"desenvolvedoras"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Alterar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Xbox Series X\",\n    \"descricao\": \"Melhor console da Microsoft\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/desenvolvedoras/573eb4a8-d1b9-45c6-b156-b937f677cc59",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"desenvolvedoras",
+										"573eb4a8-d1b9-45c6-b156-b937f677cc59"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Visualizar por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/desenvolvedoras/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"desenvolvedoras",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/desenvolvedoras/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"desenvolvedoras",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Jogos",
+					"item": [
+						{
+							"name": "Listar Todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/jogos",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jogos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"The Witcher 3\",\n    \"descricao\": \"Bruxo matador de mulheres e comedor de monstros ... Quê? não, péra ...\",\n    \"data_lancamento\": \"2015-05-18T00:00:00\",\n    \"desenvolvedora\": {\"id\": \"bc1267f0-ea4f-458c-807e-8ea19f507942\"},\n    \"produtora\": {\"id\": \"feda1597-62af-41e0-a35f-9a4561a0cc96\"},\n    \"categorias\": [\n        {\n            \"id\": \"9e39fb99-1d86-4a47-acf0-a266efad76fd\"\n        },\n        {\n            \"id\": \"dbdd20a0-0f24-45f9-b566-2e9df47583d2\"\n        }\n    ],\n    \"plataformas\": [\n        {\n            \"id\": \"573eb4a8-d1b9-45c6-b156-b937f677cc59\"\n        },\n        {\n            \"id\": \"5985a3b3-431a-42ec-ba5a-34e779dbc5c0\"\n        },\n        {\n            \"id\": \"563a815d-1fc0-49bf-a8f0-570538f52e25\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/jogos",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jogos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Alterar",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Xbox Series X\",\n    \"descricao\": \"Melhor console da Microsoft\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/jogos/573eb4a8-d1b9-45c6-b156-b937f677cc59",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jogos",
+										"573eb4a8-d1b9-45c6-b156-b937f677cc59"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Visualizar por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/jogos/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jogos",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_api_james}}/api/v1/jogos/",
+									"host": [
+										"{{base_api_james}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jogos",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Base",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
