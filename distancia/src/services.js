@@ -7,12 +7,12 @@ function GrausParaRadianos(value) {
   return (value * Math.PI) / 180
 }
 
-function ArcoCosseno(l1, b1, l2, b2) {
+function ArcoCosseno(latitude1, longitude1, latitude2, longitude2) {
     //converte coordenadas de graus para radianos
-  const l1Radianus = GrausParaRadianos(l1);
-  const b1Radianus = GrausParaRadianos(b1);
-  const l2Radianus = GrausParaRadianos(l2);
-  const b2Radianus = GrausParaRadianos(b2);
+  const l1Radianus = GrausParaRadianos(latitude1);
+  const b1Radianus = GrausParaRadianos(longitude1);
+  const l2Radianus = GrausParaRadianos(latitude2);
+  const b2Radianus = GrausParaRadianos(longitude2);
 
   return Math.acos(
     Math.sin(l1Radianus) * Math.sin(l2Radianus) +
@@ -22,8 +22,8 @@ function ArcoCosseno(l1, b1, l2, b2) {
   )
 }
 
-function CalcularDistancia(l1, b1, l2, b2, earthRadiusKm) {
-  const lambda = ArcoCosseno(l1, b1, l2, b2);
+function CalcularDistancia(latitude1, longitude1, latitude2, longitude2, earthRadiusKm) {
+  const lambda = ArcoCosseno(latitude1, longitude1, latitude2, longitude2);
   return Math.ceil(Math.sin(lambda) * earthRadiusKm);
 }
 
