@@ -1,4 +1,4 @@
-import {Controller, Delete, Get, Post, Put, Request, Route} from 'tsoa';
+import {Controller, Delete, Get, Post, Put, Request, Route, Tags} from 'tsoa';
 import {getCustomRepository} from "typeorm";
 import PlataformaRepository from "../repositories/PlataformaRepository"
 import express from "express";
@@ -6,6 +6,7 @@ import {validarDados} from "../validators/plataforma.validator";
 import Plataforma from "../entities/Plataforma";
 
 @Route('plataformas')
+@Tags("Plataformas")
 export class PlataformaController extends Controller {
     @Get('')
     public async index(@Request() request: express.Request) {
