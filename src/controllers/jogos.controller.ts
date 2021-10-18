@@ -1,25 +1,25 @@
 import {Controller, Delete, Get, Post, Put, Request, Route} from 'tsoa';
 import {getCustomRepository} from "typeorm";
-import PlataformaRepository from "../repositories/PlataformaRepository"
+import JogoRepository from "../repositories/JogoRepository"
 import express from "express";
-import {validarDados} from "../validators/plataforma.validator";
-import Plataforma from "../entities/Plataforma";
+import Jogo from "../entities/Jogo";
+import {validarDados} from "../validators/jogo.validator";
 
-@Route('plataformas')
-export class PlataformaController extends Controller {
+@Route('jogos')
+export class JogosController extends Controller {
     @Get('')
     public async index(@Request() request: express.Request) {
         const response = request.res;
         try {
-            const plataformaRepository = getCustomRepository(PlataformaRepository)
+            const jogoRepository = getCustomRepository(JogoRepository)
 
             const { search } = request.query
 
-            const plataformas = await plataformaRepository.getAll(search)
+            const jogos = await jogoRepository.getAll(search)
             return response.status(200).json({
                 status: 'success',
                 data: {
-                    plataformas
+                    jogos
                 }
             })
         } catch (err) {
@@ -36,14 +36,14 @@ export class PlataformaController extends Controller {
     public async view (@Request() request: express.Request) {
         const response = request.res;
         try {
-            const plataformaRepository = getCustomRepository(PlataformaRepository)
+            const jogoRepository = getCustomRepository(JogoRepository)
             const { id } = request.params
-            const plataforma = await plataformaRepository.findOne(id)
+            const jogo = await jogoRepository.findOne(id, {relations: ["categorias", "plataformas", "desenvolvedora", "produtora"]})
 
             return response.status(200).json({
                 status: 'success',
                 data: {
-                    plataforma
+                    jogo
                 }
             })
         } catch {
@@ -57,34 +57,44 @@ export class PlataformaController extends Controller {
         try {
             const {
                 nome,
-                descricao
+                descricao,
+                data_lancamento,
+                produtora,
+                desenvolvedora,
+                categorias,
+                plataformas
             } = request.body
 
-            const plataformaRepository = getCustomRepository(PlataformaRepository)
+            const jogoRepository = getCustomRepository(JogoRepository)
 
-            const plataformaExiste = await plataformaRepository.findOne({ where: { nome } })
+            const jogoExiste = await jogoRepository.findOne({ where: { nome } })
 
-            if (typeof plataformaExiste !== 'undefined') {
+            if (typeof jogoExiste !== 'undefined') {
                 return response.status(409).json({
                     status: 'error',
                     data: {
-                        title: 'Plataforma com esse nome já existe no banco de dados.'
+                        title: 'Jogo com esse nome já existe no banco de dados.'
                     }
                 })
             }
 
             await validarDados().validate(request.body, { abortEarly: false });
 
-            let plataforma = new Plataforma()
-            plataforma.nome = nome
-            plataforma.descricao = descricao
-            plataforma = await plataformaRepository.save(plataforma)
+            let jogo = new Jogo()
+            jogo.nome = nome
+            jogo.descricao = descricao
+            jogo.data_lancamento = data_lancamento
+            jogo.produtora = produtora
+            jogo.desenvolvedora = desenvolvedora
+            jogo.categorias = categorias
+            jogo.plataformas = plataformas
+            jogo = await jogoRepository.save(jogo)
 
             return response.status(201).json({
                 status: 'success',
                 data: {
-                    title: 'Plataforma cadastrada com sucesso!',
-                    plataforma
+                    title: 'Jogo cadastrado com sucesso!',
+                    jogo
                 }
             })
         } catch (err) {
@@ -101,35 +111,45 @@ export class PlataformaController extends Controller {
         try {
             const {
                 nome,
-                descricao
+                descricao,
+                data_lancamento,
+                produtora,
+                desenvolvedora,
+                categorias,
+                plataformas
             } = request.body;
 
             const { id } = request.params;
 
-            const plataformaRepository = getCustomRepository(PlataformaRepository);
-            let existePlataforma = await plataformaRepository.verificaExistente(nome, id);
+            const jogoRepository = getCustomRepository(JogoRepository);
+            let existeJogo = await jogoRepository.verificaExistente(nome, id);
 
-            if (existePlataforma[0].qtde > 0) {
+            if (existeJogo[0].qtde > 0) {
                 return response.status(409).json({
                     status: 'error',
                     data: {
-                        title: 'Plataforma com esse nome já existe no banco de dados.'
+                        title: 'Jogo com esse nome já existe no banco de dados.'
                     }
                 });
             }
 
             await validarDados().validate(request.body, { abortEarly: false });
 
-            let plataforma = await plataformaRepository.findOne(id);
-            plataforma.nome = nome;
-            plataforma.descricao = descricao;
-            plataforma = await plataformaRepository.save(plataforma);
+            let jogo = await jogoRepository.findOne(id);
+            jogo.nome = nome
+            jogo.descricao = descricao
+            jogo.data_lancamento = data_lancamento
+            jogo.produtora = produtora
+            jogo.desenvolvedora = desenvolvedora
+            jogo.categorias = categorias
+            jogo.plataformas = plataformas
+            jogo = await jogoRepository.save(jogo);
 
             return response.status(201).json({
                 status: 'success',
                 data: {
-                    title: 'Plataforma alterada com sucesso!',
-                    plataforma
+                    title: 'Jogo alterado com sucesso!',
+                    jogo
                 }
             });
         } catch (err) {
@@ -146,21 +166,21 @@ export class PlataformaController extends Controller {
         try {
             const { id } = request.params
 
-            const plataformaRepository = getCustomRepository(PlataformaRepository)
-            const plataforma = await plataformaRepository.findOne(id)
-            await plataformaRepository.delete(plataforma)
+            const jogoRepository = getCustomRepository(JogoRepository)
+            const jogo = await jogoRepository.findOne(id)
+            await jogoRepository.delete(jogo)
 
             return response.status(200).json({
                 status: 'success',
                 data: {
-                    title: 'Plataforma deletada com sucesso!'
+                    title: 'Jogo deletado com sucesso!'
                 }
             })
         } catch (err) {
             return response.status(404).json({
                 status: 'error',
                 data: {
-                    title: 'Plataforma inexistente!'
+                    title: 'Jogo inexistente!'
                 }
             })
         }

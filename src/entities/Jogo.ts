@@ -24,7 +24,7 @@ export default class Jogo {
     public descricao: string;
 
     @Column()
-    public foto: string;
+    public data_lancamento: Date;
 
     @ManyToOne(type => Produtora, jogos => Jogo)
     @JoinColumn({ name: "produtora_id" })
@@ -36,18 +36,28 @@ export default class Jogo {
 
     @ManyToMany(type => Categoria)
     @JoinTable({
-        name: "jogos_categoria",
+        name: "jogo_categoria",
         joinColumn:  {
-            name: "categoria_id"
+            name: "jogo_id",
+            referencedColumnName: "id"
+        },
+        inverseJoinColumn: {
+            name: "categoria_id",
+            referencedColumnName: "id"
         }
     })
     public categorias: Categoria[];
 
     @ManyToMany(type => Plataforma)
     @JoinTable({
-        name: "jogos_plataforma",
+        name: "jogo_plataforma",
         joinColumn:  {
-            name: "plataforma_id"
+            name: "jogo_id",
+            referencedColumnName: "id"
+        },
+        inverseJoinColumn: {
+            name: "plataforma_id",
+            referencedColumnName: "id"
         }
     })
     public plataformas: Plataforma[]

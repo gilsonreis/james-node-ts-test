@@ -25,10 +25,6 @@ export class createJogosTable1634485809276 implements MigrationInterface {
                     type: 'text'
                 },
                 {
-                    name: 'foto',
-                    type: 'varchar'
-                },
-                {
                     name: 'data_lancamento',
                     type: 'date'
                 },

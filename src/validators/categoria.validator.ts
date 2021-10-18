@@ -1,5 +1,4 @@
-import {Request} from 'express'
-import * as Yup from 'yup'
+import Yup from "../config/yup.config";
 
 export const validarDados = () => {
     return Yup.object().shape({

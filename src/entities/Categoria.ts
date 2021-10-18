@@ -22,9 +22,14 @@ export default class Categoria {
 
     @ManyToMany(type => Jogo, jogos => jogos.categorias)
     @JoinTable({
-        name: "jogos_plataforma",
+        name: "jogo_categoria",
         joinColumn:  {
-            name: "jogo_id"
+            name: "jogo_id",
+            referencedColumnName: "id"
+        },
+        inverseJoinColumn: {
+            name: "categoria_id",
+            referencedColumnName: "id"
         }
     })
     public jogos: Jogo[]
