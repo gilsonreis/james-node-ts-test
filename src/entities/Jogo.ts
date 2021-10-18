@@ -7,13 +7,13 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";
-import {Produtora} from "@models/Produtora";
-import {Desenvolvedora} from "@models/Desenvolvedora";
-import {Categoria} from "@models/Categoria";
-import {Plataforma} from "@models/Plataforma";
+import Produtora from "./Produtora";
+import Desenvolvedora from "./Desenvolvedora";
+import Categoria from "./Categoria";
+import Plataforma from "./Plataforma";
 
 @Entity()
-export class Jogo {
+export default class Jogo {
     @PrimaryGeneratedColumn('uuid')
     public id: string;
 
