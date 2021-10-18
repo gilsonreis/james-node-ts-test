@@ -73,12 +73,7 @@ export class CategoriasController extends Controller {
                 })
             }
 
-            validarDados().validate(request.body).catch(function (err) {
-                return response.status(400).json({
-                    status: 'error',
-                    data: err.errors
-                })
-            });
+            await validarDados().validate(request.body, { abortEarly: false });
 
             let categoria = new Categoria()
             categoria.nome = nome
@@ -92,8 +87,11 @@ export class CategoriasController extends Controller {
                     categoria
                 }
             })
-        } catch {
-
+        } catch (err) {
+            return response.status(400).json({
+                status: 'error',
+                data: err
+            })
         }
     }
 
@@ -120,12 +118,7 @@ export class CategoriasController extends Controller {
                 });
             }
 
-            validarDados().validate(request.body).catch(function (err) {
-                return response.status(400).json({
-                    status: 'error',
-                    data: err.errors
-                })
-            });
+            await validarDados().validate(request.body, { abortEarly: false });
 
             let categoria = await categoriaRepository.findOne(id);
             categoria.nome = nome;
@@ -140,7 +133,10 @@ export class CategoriasController extends Controller {
                 }
             });
         } catch (err) {
-            return response.status(400).json(err)
+            return response.status(400).json({
+                status: 'error',
+                data: err
+            })
         }
     }
 

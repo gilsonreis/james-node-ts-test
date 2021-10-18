@@ -73,7 +73,7 @@ export class DesenvolvedoraController extends Controller {
                 })
             }
 
-            await validarDados().validate(request.body);
+            await validarDados().validate(request.body, { abortEarly: false });
 
             let desenvolvedora = new Desenvolvedora()
             desenvolvedora.nome = nome
@@ -118,7 +118,7 @@ export class DesenvolvedoraController extends Controller {
                 });
             }
 
-            await validarDados().validate(request.body);
+            await validarDados().validate(request.body, { abortEarly: false });
 
             let desenvolvedora = await desenvolvedoraRepository.findOne(id);
             desenvolvedora.nome = nome;

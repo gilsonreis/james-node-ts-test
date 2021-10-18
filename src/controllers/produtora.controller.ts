@@ -73,7 +73,7 @@ export class ProdutoraController extends Controller {
                 })
             }
 
-            await validarDados().validate(request.body);
+            await validarDados().validate(request.body, { abortEarly: false });
 
             let produtora = new Produtora()
             produtora.nome = nome
@@ -118,7 +118,7 @@ export class ProdutoraController extends Controller {
                 });
             }
 
-            await validarDados().validate(request.body);
+            await validarDados().validate(request.body, { abortEarly: false });
 
             let produtora = await produtoraRepository.findOne(id);
             produtora.nome = nome;
